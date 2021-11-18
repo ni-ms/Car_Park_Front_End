@@ -1,4 +1,8 @@
-# frontendui
+# Car_Park_Front_End
+
+## READ THIS
+Create a new folder in src/components with the name of the html/vue file and paste your html/vue file in the folder.
+
 
 ## Project setup
 ```
