@@ -47,19 +47,18 @@
           v-model="group"
           active-class="deep-purple--text text--accent-4"
         >
-          <v-list-item>
+          <v-list-item
+          v-for="item in menuItems"
+         :key="item.title"
+         :to="item.path"
+          
+          >
             <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
+              <v-icon>{{item.icon}}</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Home</v-list-item-title>
+            <v-list-item-title>{{item.title}}</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Account</v-list-item-title>
-          </v-list-item>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
@@ -81,7 +80,7 @@ export default {
     //sidebar
     appTitle: 'Car Parking Solutions',
     menuItems:[{title: 'Home', path: '/', icon: 'mdi-home'},
-      {title: 'Account', path: '/home', icon: 'mdi-account'},
+      {title: 'Account', path: '/Booking', icon: 'mdi-account'},
       {title: 'Login', path: '/Login', icon: 'mdi-login'}],
       drawer: false,
       group: null,

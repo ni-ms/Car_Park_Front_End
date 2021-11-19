@@ -1,5 +1,5 @@
 <template>
     <v-container>
-        <h1> TITLE </h1>
+        <h1> 404 Error. Page Not Found! </h1>
     </v-container>
 </template>
