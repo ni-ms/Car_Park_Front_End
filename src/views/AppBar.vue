@@ -80,7 +80,7 @@ export default {
     //sidebar
     appTitle: 'Car Parking Solutions',
     menuItems:[{title: 'Home', path: '/', icon: 'mdi-home'},
-      {title: 'Account', path: '/Booking', icon: 'mdi-account'},
+      {title: 'Instant Booking', path: '/Booking', icon: 'mdi-account'},
       {title: 'Login', path: '/Login', icon: 'mdi-login'}],
       drawer: false,
       group: null,
