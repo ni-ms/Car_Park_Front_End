@@ -2,9 +2,9 @@
   <div>
 
 <v-app-bar
-      color="green"
+      color="#FCCA46"
       width="100%"
-      elevate-on-scroll 
+      
       height="60px"
     >
   
@@ -32,7 +32,7 @@
       v-model="drawer"
       absolute
       temporary
-       src="https://picsum.photos/1080/720/?blur=5"
+       color="FCCA46"
        floating
        right
     transition="slide-y-transition"
@@ -80,8 +80,17 @@ export default {
     //sidebar
     appTitle: 'Car Parking Solutions',
     menuItems:[{title: 'Home', path: '/', icon: 'mdi-home'},
-      {title: 'Instant Booking', path: '/Booking', icon: 'mdi-account'},
-      {title: 'Login', path: '/Login', icon: 'mdi-login'}],
+      {title: 'Booking', path: '/Booking', icon: 'mdi-account'},
+      {title: 'Admin', path: '/AdminDash', icon:'mdi-account-wrench'},
+     
+      {title: 'User', path: '/UserDash', icon: 'mdi-account-outline'},
+      {title: 'Worker', path: '/WorkerDash', icon: 'mdi-account-hard-hat'},
+
+       {title: 'Feedback', path: '/Feedback', icon: 'mdi-message-draw'},
+      {title: 'Login', path: '/Login', icon: 'mdi-login'},
+       {title: 'Sign Up', path: '/SignUp', icon: 'mdi-pencil'},
+      
+      ],
       drawer: false,
       group: null,
   }),
