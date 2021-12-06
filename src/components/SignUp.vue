@@ -1,5 +1,6 @@
 <template>
   <v-container>
+     
       <v-card>
           <v-card-title>
               Sign up to the Car Park!
@@ -7,12 +8,15 @@
           <v-card-text>
               <v-row>
                   <v-col>
+                   
   <v-text-field
   v-model="firstname"
+  type="text"
       label="First Name"
       :rules="rules"
       hide-details="auto"
     ></v-text-field>
+                    
                   </v-col>
                   <v-col>
                        <v-text-field
@@ -93,7 +97,7 @@
     <br />
 
     <v-row>
-        <v-btn success @click="submitbut()"> Submit </v-btn>
+        <v-btn success v-on:click="submitbut"> Submit </v-btn>
     </v-row>
           </v-card-text>
       </v-card>
@@ -102,7 +106,13 @@
 </template>
 
 <script>
+
+//import { ValidationProvider, ValidationObserver } from 'vee-validate';
+
+
+import axios from 'axios'
 export default {
+    
 name:'SignUp',
 data() {
     return {
@@ -116,6 +126,8 @@ data() {
         password:"",
         password2:"",
         passstatus: "",
+        mobnum: "",
+        carmodel: "",
         show1: false,
         show2: false,
         rules: [
@@ -125,13 +137,13 @@ data() {
     }
 },
 watch: {
-    password: function (val) {
+    password: function () {
         this.checkmatch();
-        console.log(val);
+      
     },
-     password2: function (val2) {
+     password2: function () {
         this.checkmatch();
-        console.log(val2);
+       
     }
 },
 methods: {
@@ -144,6 +156,33 @@ methods: {
         } else {
             this.passstatus = "Passwords Don't Match :(";
         }
+    },
+    submitbut(){
+        axios.post('http://localhost:8080/user', {
+            
+            firstName: this.firstname,
+            lastName: this.lastname,
+            userName: this.username,
+            password: this.password,
+            residentialAddress: this.address,
+            emailId: this.emailadd,
+            mobileNumber: this.mobnum,
+            carRegistrationNumber: this.carreg,
+            carModel: this.carmodel,
+            frequency: 1,
+            discountPercentage: 0.2,
+            accountBalance: 0,
+            isWaitlisted: 0, 
+            
+
+
+        }) .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
     }
 },
 }
