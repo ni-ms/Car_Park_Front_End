@@ -3,7 +3,14 @@ import App from './App.vue'
 import store from './store'
 import router from './router'
 import vuetify from './plugins/vuetify'
-import LoadScript from 'vue-plugin-load-script';
+import LoadScript from 'vue-plugin-load-script'
+
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+
+
 
 
 Vue.use(LoadScript);

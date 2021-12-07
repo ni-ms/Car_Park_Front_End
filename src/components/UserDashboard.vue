@@ -1,5 +1,13 @@
 <template>
   <v-container>
+    <v-card>
+      <v-card-title>
+        <h1>
+        Welcome,  {{$store.state.username}} !
+        </h1>
+      </v-card-title>
+    </v-card>
+    <br />
       <v-card
     color="#225560"
     dark
@@ -281,15 +289,22 @@
 
 <changed-data-prop changedbooking="test" />
 
+
   </v-container>
 </template>
 
 <script>
+import store from '../store/index.js'
+
+
 export default {
  name:'UserDash',
+ store: store,
+
 
 data() {
      return {
+       currentuser: "",
          customers: [{
            carname: 'Suzuki',
            name: 'Arun',
@@ -375,6 +390,8 @@ data() {
  },
 
  methods: {
+
+
       
       editItem (item) {
         this.editedIndex = this.customers.indexOf(item)

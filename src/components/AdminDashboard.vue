@@ -3,6 +3,7 @@
       <v-card>
          <v-card-title>
             Current Stats
+            
          </v-card-title>
          <v-card-text>
             <v-sparkline
@@ -27,15 +28,17 @@
       </v-card>
       <v-card>
          <v-card-title>
-            Current Cars
+            Parking Spaces
          </v-card-title>
          <v-card-text>
             <v-data-table
-               :headers="headers"
-               :items="parkedcars"
+               :headers="parkingspaceheaders"
+               :items="parkingspaceitems"
                :items-per-page="5"
+              
                class="elevation-1"
                ></v-data-table>
+            
          </v-card-text>
       </v-card>
       <v-card>
@@ -55,7 +58,7 @@
       <v-toolbar
         flat
       >
-        <v-toolbar-title>Add/Remove Spaces</v-toolbar-title>
+        <v-toolbar-title>Add/Remove Slots</v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
@@ -74,7 +77,7 @@
               v-bind="attrs"
               v-on="on"
             >
-              New Item
+              New Slot
             </v-btn>
           </template>
           <v-card>
@@ -233,22 +236,19 @@
          <v-card-title>
             Block Parking Spots
          </v-card-title>
-      <v-card-text>
-          Test: 
-          <div id="changed-data-prop">
-          {{changedbooking}}
-          </div>
-      </v-card-text>
+      
       </v-card>
    </v-container>
 </template>
 <script>
+import axios from 'axios'
    export default {
+
        name:'AdminDash',
    
        data(){
            return{
-               props: ['changedbooking'],
+              
 
 
 
@@ -283,7 +283,17 @@
           {text: 'Extras Services', value: 'extraservices'},
           { text: 'Actions', value: 'actions', sortable: false }
            ],
-   
+           parkingspaceheaders:[{
+             text: 'Parking ID',
+             align: 'start',
+             sortable: 'true',
+             value: 'parkingId',
+           },
+           {text: 'Parking Space Number', value: 'parkingSpaceNumber'},
+           {text: 'Slot Active', value: 'spaceActive'}
+           
+           ],
+    parkingspaceitems:[],
        parkedcars: [{
            name: 'Suzuki',
            license: 'ts1234',
@@ -318,7 +328,7 @@
 
           dialog: false,
       dialogDelete: false,
-         desserts: [],
+     
       editedIndex: -1,
       editedItem: {
           name: '',
@@ -360,11 +370,21 @@
     },
 
     created () {
-      this.initialize()
+
+    this.updateslots();
     },
 
     methods: {
-      
+      updateslots(){
+       
+        axios.get('http://localhost:8080/parking').then( response=>{
+          
+         for(var i = 0; i < response.data.length; i++)
+         this.parkingspaceitems.push(response.data[i]);
+  
+          
+        }).finally(console.log("done"));
+      },
       editItem (item) {
         this.editedIndex = this.parkedcars.indexOf(item)
         this.editedItem = Object.assign({}, item)

@@ -30,6 +30,7 @@
             label="UserName"
             :rules="rules"
              hide-details="auto"
+             
 
           ></v-text-field>
              </v-row>
@@ -38,6 +39,7 @@
             label="Slot Id"
             :rules="rules"
              hide-details="auto"
+             v-model="slotid"
            
 
           ></v-text-field>
@@ -53,7 +55,8 @@
   color="green"
   empty-icon="mdi-star-outline"
   full-icon="mdi-star"
-  
+  v-model="rating"
+  @change="checkvalidslot"
   length="5"
   size="25"
   value="5"
@@ -63,7 +66,7 @@
              <br />
 <v-row>
    <v-textarea
-      v-model="title"
+      v-model="tmessage"
       label="Message"
       counter
       maxlength="120"
@@ -74,6 +77,8 @@
 <v-btn elevation="2">
 Submit
 </v-btn>
+
+ {{ rating }} {{tmessage}}
          </v-card-text> 
      </v-card>
   </v-container>
@@ -89,7 +94,17 @@ export default {
                 value => !!value || 'Required.',
                 value => (value && value.length >= 3) || 'Minimum three characters.',
             ],
+            slotid: "",
+            rating: "",
+            tmessage: "",
+            
+
         }
+    },
+    methods: {
+        getvalidslot(){
+
+        },
     },
 }
 </script>

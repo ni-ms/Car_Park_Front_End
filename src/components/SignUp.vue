@@ -93,6 +93,22 @@
       hide-details="auto"
     ></v-text-field>
     </v-row>
+    <v-row>
+        <v-text-field
+        v-model="mobnum"
+      label="Mobile Number:"
+      :rules="rules"
+      hide-details="auto"
+    ></v-text-field>
+    </v-row>
+    <v-row>
+        <v-text-field
+        v-model="carmodel"
+      label="Car Model"
+      :rules="rules"
+      hide-details="auto"
+    ></v-text-field>
+    </v-row>
     <br />
     <br />
 

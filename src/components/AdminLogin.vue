@@ -9,7 +9,7 @@
                <v-flex xs12 sm8 md4>
                   <v-card class="elevation-12">
                      <v-toolbar dark color="primary">
-                        <v-toolbar-title>Login form</v-toolbar-title>
+                        <v-toolbar-title>Admin Login form</v-toolbar-title>
                      </v-toolbar>
                      <v-card-text>
                         <v-form >
@@ -62,7 +62,7 @@ import store from '../store/index.js'
 
 import axios from "axios";
 export default {
-   name: 'LoginPage',
+   name: 'AdminLoginPage',
    store: store,
    
    props: {
@@ -85,7 +85,7 @@ export default {
   
    methods: {
       getinfo(){
-         axios({ method: "GET", "url": "http://localhost:8080/username?userName=" + this.usernamei}).then(
+         axios({ method: "GET", "url": "http://localhost:8080/adminusername?userName=" + this.usernamei}).then(
        result =>{
          this.usernameg = result.data.userName;
          this.passwordg = result.data.password;
@@ -99,8 +99,8 @@ export default {
         if(this.usernamei != "" && this.passwordi != "") {
                     if(this.usernamei == this.usernameg && this.passwordi == this.passwordg) {
                       //  this.$emit("authenticated", true);
-                        this.$router.replace({ path:"/UserDash" });
-                        store.commit('adduser', this.usernamei);
+                        this.$router.replace({ path:"/AdminDash" });
+                        store.commit('addadmin', this.usernamei);
                        
                         
                     } else {
