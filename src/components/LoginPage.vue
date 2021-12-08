@@ -41,6 +41,13 @@
                          @click="login"
                         
                         >Login</v-btn>
+                        <v-btn color="white" mr-4 href="http://localhost:8080/oauth2/authorization/google"> Login with Google </v-btn>
+                     <div class="container authenticated" style="display: none">
+                        
+                        Logged in as: <span id = "user"></span>
+                        
+                        </div>
+                     
                      </v-card-actions>
                    
                   </v-card>

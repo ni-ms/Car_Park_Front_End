@@ -10,6 +10,7 @@ import WorkerDash from '../components/WorkerDashboard.vue'
 import SignUp from '../components/SignUp.vue'
 import Logoutpage from '../components/Logoutpage.vue'
 import AdminLoginPage from '../components/AdminLogin.vue'
+import AdminSignUp from '../components/AdminSignUp.vue'
 
 Vue.use(VueRouter)
 
@@ -38,6 +39,18 @@ const routes = [{
         // which is lazy-loaded when the route is visited.
         component: () =>
             import ( /* webpackChunkName: "about" */ '../components/AdminLogin.vue')
+
+
+
+    },
+    {
+        path: '/Adminsignup',
+        name: AdminSignUp,
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../components/AdminSignUp.vue')
 
 
 

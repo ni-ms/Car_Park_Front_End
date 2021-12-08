@@ -93,7 +93,7 @@ export default {
     //sidebar
     appTitle: 'Car Parking Solutions',
   
-    index: 0,
+    index: 2,
     menuItems:
        [[
       {title: 'Home', path: '/', icon: 'mdi-home'},
@@ -116,6 +116,13 @@ export default {
 
 
        ], 
+       [
+      {title: 'Home', path: '/', icon: 'mdi-home'},
+    
+
+  
+      {title: 'Login', path: '/Login', icon: 'mdi-login'},
+       {title: 'Sign Up', path: '/SignUp', icon: 'mdi-pencil'},],
        []
        
        ],
@@ -125,16 +132,16 @@ export default {
       drawer: false,
       group: null,
   }),
-updated() {
+beforeUpdate() {
   this.changefun();
  
  
 },
   methods: {
     changefun(){
-      if(store.state.username == ""){
-        
-        this.index == 0;
+      if(store.state.admin != ""){
+
+        this.index = 0;
       } else if (store.state.username != "") {
      
         this.index = 1;
