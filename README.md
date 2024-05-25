@@ -3,6 +3,8 @@
 ## READ THIS
 Create a new folder in src/components with the name of the html/vue file and paste your html/vue file in the folder.
 
+## NOTE
+I used the options api to build this app.
 
 ## Project setup
 ```
